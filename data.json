@@ -115,6 +115,7 @@
         {
             "id": "product15",
             "image":"https://rms-project-yt.github.io/products/images/product_15.jpg",
+            "name": "1 Kilo de nozes",
             "quantity": 1,
             "unitPrice": 48.00,
             "stock": 6
