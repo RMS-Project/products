@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Retorno de Quantidade em JSON</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Obtém o ID da URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+
+      // Define o objeto JSON com os dados desejados
+      const jsonData = {
+        "product1": [
+          {
+            "quantity": 10
+          }
+        ],
+        "product2": [
+          {
+            "quantity": 5
+          }
+        ],
+        "product3": [
+          {
+            "quantity": 25
+          }
+        ],
+        "product4": [
+          {
+            "quantity": 50
+          }
+        ],
+        "product5": [
+          {
+            "quantity": 4
+          }
+        ],
+        "product6": [
+          {
+            "quantity": 16
+          }
+        ],
+        "product7": [
+          {
+            "quantity": 6
+          }
+        ],
+        "product8": [
+          {
+            "quantity": 2
+          }
+        ],
+        "product9": [
+          {
+            "quantity": 1
+          }
+        ],
+        "product10": [
+          {
+            "quantity": 40
+          }
+        ],
+        "product11": [
+          {
+            "quantity": 23
+          }
+        ],
+        "product12": [
+          {
+            "quantity": 22
+          }
+        ],
+        "product13": [
+          {
+            "quantity": 18
+          }
+        ],
+        "product14": [
+          {
+            "quantity": 12
+          }
+        ],
+        "product15": [
+          {
+            "quantity": 9
+          }
+        ],
+        "product16": [
+          {
+            "quantity": 3
+          }
+        ],
+        "product17": [
+          {
+            "quantity": 12
+          }
+        ],
+
+        // Adicione mais produtos conforme necessário
+      };
+
+      // Verifica se o ID existe no objeto JSON
+      if (jsonData.hasOwnProperty(id)) {
+        const quantity = jsonData[id][0].quantity;
+        const response = {
+          [id]: [
+            {
+              quantity: quantity
+            }
+          ]
+        };
+        const jsonString = JSON.stringify(response);
+
+        // Cria o arquivo Blob com o JSON
+        const blob = new Blob([jsonString], { type: 'application/json' });
+
+        // Cria o URL temporário para o Blob
+        const url = URL.createObjectURL(blob);
+
+        // Redireciona para o URL do JSON
+        window.location.href = url;
+      } else {
+        alert('ID não encontrado no JSON.');
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Retorno de Quantidade em JSON</h1>
+</body>
+</html>
+
+
+<!-- index.html?id=product3 -->
